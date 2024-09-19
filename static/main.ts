@@ -65,7 +65,7 @@ function clearResults() {
 }
 
 
-// Attach event listeners to buttons
+// Event listeners for search and clear buttons
 document.getElementById('search-applicant-btn')!.addEventListener('click', searchByApplicant);
 document.getElementById('search-street-btn')!.addEventListener('click', searchByStreet);
 document.getElementById('search-location-btn')!.addEventListener('click', searchByLocation);
