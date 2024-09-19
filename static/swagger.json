@@ -1,0 +1,146 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API for Food Trucks in San Francisco",
+        "version": "1.0.0",
+        "title": "Food Trucks API"
+    },
+    "basePath": "/",
+    "paths": {
+        "/search/applicant": {
+            "get": {
+                "summary": "Search food trucks by applicant name",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "type": "string",
+                        "description": "Applicant name"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list of trucks with matching applicant names",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Truck"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request if no name is provided"
+                    },
+                    "404": {
+                        "description": "No trucks found"
+                    }
+                }
+            }
+        },
+        "/search/street": {
+            "get": {
+                "summary": "Search food trucks by part of the street name",
+                "parameters": [
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "required": true,
+                        "type": "string",
+                        "description": "Part of the street name to search for"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list of trucks with matching street name",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Truck"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request if no street part is provided"
+                    },
+                    "404": {
+                        "description": "No trucks found"
+                    }
+                }
+            }
+        },
+        "/search/location": {
+            "get": {
+                "summary": "Search food trucks by location",
+                "parameters": [
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "required": true,
+                        "type": "number",
+                        "description": "Latitude of the location"
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "required": true,
+                        "type": "number",
+                        "description": "Longitude of the location"
+                    },
+                    {
+                        "name": "all_status",
+                        "in": "query",
+                        "required": false,
+                        "type": "boolean",
+                        "description": "Include all status (Approved/Not Approved)",
+                        "enum": [true, false]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list of nearby food trucks",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Truck"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request if latitude/longitude is missing or invalid"
+                    },
+                    "404": {
+                        "description": "No trucks found"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Truck": {
+            "type": "object",
+            "properties": {
+                "applicant": {
+                    "type": "string",
+                    "example": "Test Truck A"
+                },
+                "address": {
+                    "type": "string",
+                    "example": "123 Main St"
+                },
+                "status": {
+                    "type": "string",
+                    "example": "APPROVED"
+                },
+                "latitude": {
+                    "type": "number", 
+                    "example": 37.7749
+                },
+                "longitude": {
+                    "type": "number", 
+                    "example": -122.4194
+                }
+            }
+        }
+    }
+}

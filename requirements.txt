@@ -1,0 +1,7 @@
+Flask
+requests
+geopy
+flask-swagger-ui
+pytest
+pytest-flask 
+requests-mock
