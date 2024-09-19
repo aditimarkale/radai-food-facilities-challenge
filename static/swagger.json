@@ -1,9 +1,9 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "API for Food Trucks in San Francisco",
+        "description": "API for Food Facilities in San Francisco",
         "version": "1.0.0",
-        "title": "Food Trucks API"
+        "title": "Food Facilities API"
     },
     "basePath": "/",
     "paths": {
@@ -120,25 +120,131 @@
         "Truck": {
             "type": "object",
             "properties": {
-                "applicant": {
-                    "type": "string",
-                    "example": "Test Truck A"
-                },
                 "address": {
-                    "type": "string",
-                    "example": "123 Main St"
+                  "type": "string",
+                  "example": "1 SANSOME ST",
+                  "description": "The address of the food truck."
                 },
-                "status": {
-                    "type": "string",
-                    "example": "APPROVED"
+                "applicant": {
+                  "type": "string",
+                  "example": "Santana ESG, Inc.",
+                  "description": "The name of the food truck applicant or company."
+                },
+                "approved": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2017-03-21T00:00:00.000",
+                  "description": "The date the permit was approved."
+                },
+                "block": {
+                  "type": "string",
+                  "example": "0289",
+                  "description": "The block number of the food truck location."
+                },
+                "blocklot": {
+                  "type": "string",
+                  "example": "0289003",
+                  "description": "The block and lot number of the food truck location."
+                },
+                "cnn": {
+                  "type": "string",
+                  "example": "11542000",
+                  "description": "The CNN identifier for the location."
+                },
+                "dayshours": {
+                  "type": "string",
+                  "example": "Mo-Fr:11AM-3PM",
+                  "description": "Operating days and hours."
+                },
+                "expirationdate": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2018-07-15T00:00:00.000",
+                  "description": "The expiration date of the permit."
+                },
+                "facilitytype": {
+                  "type": "string",
+                  "example": "Truck",
+                  "description": "The type of facility, e.g., truck or cart."
+                },
+                "fooditems": {
+                  "type": "string",
+                  "example": "Tacos: Burritos: Tortas: Quesadillas: Mexican Drinks: Aguas Frescas",
+                  "description": "List of food items offered."
                 },
                 "latitude": {
-                    "type": "number", 
-                    "example": 37.7749
+                  "type": "string",
+                  "example": "37.790485146128",
+                  "description": "The latitude of the food truck location."
+                },
+                "location": {
+                  "type": "object",
+                  "properties": {
+                    "latitude": {
+                      "type": "string",
+                      "example": "37.790485146128"
+                    },
+                    "longitude": {
+                      "type": "string",
+                      "example": "-122.40094044068951"
+                    }
+                  },
+                  "description": "The geographical location of the food truck."
+                },
+                "locationdescription": {
+                  "type": "string",
+                  "example": "SANSOME ST: SUTTER ST to BUSH ST (1 - 99)",
+                  "description": "A description of the location."
                 },
                 "longitude": {
-                    "type": "number", 
-                    "example": -122.4194
+                  "type": "string",
+                  "example": "-122.40094044068951",
+                  "description": "The longitude of the food truck location."
+                },
+                "lot": {
+                  "type": "string",
+                  "example": "003",
+                  "description": "The lot number of the food truck location."
+                },
+                "objectid": {
+                  "type": "integer",
+                  "example": 934719,
+                  "description": "The object ID for the food truck entry."
+                },
+                "permit": {
+                  "type": "string",
+                  "example": "17MFF-0122",
+                  "description": "The permit number for the food truck."
+                },
+                "priorpermit": {
+                  "type": "integer",
+                  "example": 1,
+                  "description": "Indicates if a prior permit exists."
+                },
+                "received": {
+                  "type": "string",
+                  "example": "20170213",
+                  "description": "The date the application was received."
+                },
+                "schedule": {
+                  "type": "string",
+                  "example": "http://bsm.sfdpw.org/PermitsTracker/reports/report.aspx?title=schedule&report=rptSchedule&params=permit=17MFF-0122&ExportPDF=1&Filename=17MFF-0122_schedule.pdf",
+                  "description": "A URL to view the schedule for the food truck."
+                },
+                "status": {
+                  "type": "string",
+                  "example": "EXPIRED",
+                  "description": "The current status of the food truck permit."
+                },
+                "x": {
+                  "type": "string",
+                  "example": "6012406.465",
+                  "description": "The X coordinate of the location."
+                },
+                "y": {
+                  "type": "string",
+                  "example": "2115874.016",
+                  "description": "The Y coordinate of the location."
                 }
             }
         }

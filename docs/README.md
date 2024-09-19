@@ -17,7 +17,7 @@ The application utilizes:
 
 # Technical / Architectural Decisions
 1. **Frontend Framework**
-    * Material UI - Utilized MUI to provide a consistent look with minimal custom CSS. The responsive components ensure a seamless experience. Pre-built components facilitatedfaster development process and unified design.
+    * Material UI - Utilized MUI to provide a consistent look with minimal custom CSS. The responsive components ensure a seamless experience. Pre-built components facilitated faster development process and unified design.
 
 2. **Typescript**
     * Asynchronous Functions: Used `async/await` for making requests to ensure a responsive user innterface. This approach simplifies async code, enhances readability and manages errors effectively with try/catch block.
@@ -53,9 +53,11 @@ The application utilizes:
     * Data storage - As data grows, use of a dedicated database would be more efficient.
 * *Scaling solutions*
     * Using a scalable framework for building a web application.
+    * Break down the application into modular microservices, each handling specific tasks, allowing independent scaling and reducing bottlenecks
+    * Use messaging systems for asynchronous communication between services, enabling distributed task processing and better scalability
+    * Implement a load balancer to distribute traffic across servers, ensuring scalability, performance, and fault tolerance
     * Implement caching for API responses and frequently accessed data.
     * Optimize queries to avoid unnecessary data retrieval.
-    * Distribute the application across multiple servers to enhance scalability and fault tolerance.
     * Continuously monitor application performance and manage increasing loads.
     * Implement lazy loading or infinite scrolling on the UI to handle large data sets.
 

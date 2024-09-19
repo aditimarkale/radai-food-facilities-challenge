@@ -64,9 +64,34 @@ function clearResults() {
     (document.getElementById('all-status') as HTMLInputElement).checked = false;
 }
 
+// Function to update button state
+// Search is disabled until input fields are populated
+function updateButtonState() {
+    const name = (document.getElementById('applicant-name') as HTMLInputElement).value;
+    const streetName = (document.getElementById('street-name') as HTMLInputElement).value;
+    const latitude = (document.getElementById('latitude') as HTMLInputElement).value;
+    const longitude = (document.getElementById('longitude') as HTMLInputElement).value;
+
+    const isApplicantInputValid = name.trim() !== '';
+    const isStreetInputValid = streetName.trim() !== '';
+    const isLocationInputValid = latitude.trim() !== '' && longitude.trim() !== '';
+
+    (document.getElementById('search-applicant-btn') as HTMLButtonElement).disabled = !isApplicantInputValid;
+    (document.getElementById('search-street-btn') as HTMLButtonElement).disabled = !isStreetInputValid;
+    (document.getElementById('search-location-btn') as HTMLButtonElement).disabled = !isLocationInputValid;
+}
+
+// Input event listeners to input fields
+document.getElementById('applicant-name')!.addEventListener('input', updateButtonState);
+document.getElementById('street-name')!.addEventListener('input', updateButtonState);
+document.getElementById('latitude')!.addEventListener('input', updateButtonState);
+document.getElementById('longitude')!.addEventListener('input', updateButtonState);
+
 
 // Event listeners for search and clear buttons
 document.getElementById('search-applicant-btn')!.addEventListener('click', searchByApplicant);
 document.getElementById('search-street-btn')!.addEventListener('click', searchByStreet);
 document.getElementById('search-location-btn')!.addEventListener('click', searchByLocation);
 document.getElementById('clear-results-btn')!.addEventListener('click', clearResults);
+
+window.addEventListener('load', updateButtonState);
